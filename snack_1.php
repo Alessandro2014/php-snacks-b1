@@ -3,8 +3,8 @@ Creare una funzione che restituisce un array con 15 numeri casuali,
 tenendo conto che l’array non dovrà contenere lo stesso numero più di una volta. Stampare i numeri in pagina. -->
 <?php     
 // Array
-$NumbersArray = array();
-$TempArray = array(); // MEMORIZZAZIONE MOMENTANEA NUMERO
+$NumbersArray = [];
+$TempArray = []; // MEMORIZZAZIONE MOMENTANEA NUMERO
 
     function get_random_number($min, $max){
         $RandomNumber = rand($min, $max);
@@ -22,7 +22,7 @@ $TempArray = array(); // MEMORIZZAZIONE MOMENTANEA NUMERO
     // CONTROLLO CHE NON SIA GIA' NELL'ARRAY DEFINITIVO
     if (!in_array($TempArray, $NumbersArray)) { 
         array_push($NumbersArray, $TempArray);
-        $TempArray = array();
+        $TempArray = [];
     } else {
         $i--;
     }
