@@ -26,12 +26,16 @@ Stampare Nome, Cognome e la media dei voti di ogni alunno. -->
     ],
 ]; 
 
-    $media_voti = $students[0]['voti'];
-    $sum = 0;
-    foreach($media_voti as $i) {
-    $sum += $i;
-    }
-    $media = $sum/count($media_voti);
+function get_voti($voti)
+{   //CONTO IL NUMERO DEI VOTI PRESENTI
+    $tot_voti = count($voti);
+    // SOMMA DEI VOTI
+    $totale = array_sum($voti);
+    // TOTALE VOTI DIVISO NUMERO VOTI 
+    $media_voti = $totale / $tot_voti;
+    //RITORNO LA MEDIA VOTI
+    return round($media_voti, 1);
+}
 ?>
 
 <!DOCTYPE html>
@@ -48,7 +52,7 @@ Stampare Nome, Cognome e la media dei voti di ogni alunno. -->
     <ul>
         <?php foreach ($students as $student) { ?>
             <li> 
-            Nome Alunno: <?php echo $student['nome'] ?> <?php echo $student['cognome'] ?> <br> Media voti: <?php echo  $media ?>
+            Nome Alunno: <?php echo $student['nome'] ?> <?php echo $student['cognome'] ?> <br> Media voti: <?php echo get_voti($student['voti'])?>
             </li>
         <?php } ?>
     </ul>
