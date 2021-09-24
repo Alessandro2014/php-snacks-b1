@@ -4,7 +4,6 @@ tenendo conto che l’array non dovrà contenere lo stesso numero più di una vo
 <?php     
 // Array
 $NumbersArray = [];
-$TempArray = []; // MEMORIZZAZIONE MOMENTANEA NUMERO
 
     function get_random_number($min, $max){
         $RandomNumber = rand($min, $max);
@@ -12,19 +11,13 @@ $TempArray = []; // MEMORIZZAZIONE MOMENTANEA NUMERO
     };
 
     // CICLO PER 15 VOLTE
-    for ($i=0; $i<=15; $i++) {
-    // NUMERI RANDOM COMPRESI TRA 1, 100
-    $number = get_random_number(1,100);
-
-    // PUSH NELL'ARRAY MOMENTANEO
-    array_push($TempArray, $number);
+    while (count($NumbersArray) < 15) {
+    // NUMERI RANDOM COMPRESI TRA 1, 30
+    $number = get_random_number(1,30);
 
     // CONTROLLO CHE NON SIA GIA' NELL'ARRAY DEFINITIVO
-    if (!in_array($TempArray, $NumbersArray)) { 
-        array_push($NumbersArray, $TempArray);
-        $TempArray = [];
-    } else {
-        $i--;
+    if (!in_array($number, $NumbersArray)) { 
+        array_push($NumbersArray, $number);
     }
   };
 ?>
@@ -41,7 +34,7 @@ $TempArray = []; // MEMORIZZAZIONE MOMENTANEA NUMERO
 
 <body>
     <?php foreach ($NumbersArray as $NumberArray) { ?>
-        <div>
+        <div> N. 
             <?php print_r($NumberArray) ?>
         </div>
     <?php } ?>

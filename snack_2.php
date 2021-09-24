@@ -25,6 +25,13 @@ Stampare Nome, Cognome e la media dei voti di ogni alunno. -->
         'voti' => [8, 7, 7],   
     ],
 ]; 
+
+    $media_voti = $students[0]['voti'];
+    $sum = 0;
+    foreach($media_voti as $i) {
+    $sum += $i;
+    }
+    $media = $sum/count($media_voti);
 ?>
 
 <!DOCTYPE html>
@@ -41,7 +48,7 @@ Stampare Nome, Cognome e la media dei voti di ogni alunno. -->
     <ul>
         <?php foreach ($students as $student) { ?>
             <li> 
-            Nome Alunno: <?php echo $student['nome'] ?> <?php echo $student['cognome'] ?> <br> Media voti: <?php echo  $student['voti'][1] ?>
+            Nome Alunno: <?php echo $student['nome'] ?> <?php echo $student['cognome'] ?> <br> Media voti: <?php echo  $media ?>
             </li>
         <?php } ?>
     </ul>
